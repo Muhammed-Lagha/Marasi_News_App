@@ -34,6 +34,7 @@ dependencies:
   # Management
   shared_preferences: ^2.0.17
   provider: ^6.0.5
+  iconly: ^1.0.1
 
 dev_dependencies:
   flutter_test:
@@ -53,12 +54,15 @@ flutter:
   # like this:
 
   assets:
-    - assets/images/newspaper.png
-    - assets/images/empty_image.png
-    - assets/images/bookmark.png
-    - assets/images/search.png
-    - assets/images/no_news.png
-    - assets/images/no_news.png
+    - assets/images/
+    # - assets/images/marasi_logo.png
+    # - assets/images/newspaper.png
+    # - assets/images/empty_image.png
+    # - assets/images/bookmark.png
+    # - assets/images/search.png
+    # - assets/images/no_news.png
+    # - assets/images/newspaper_icon.png
+    # - assets/images/muhammed.jpg
 
   #   - images/a_dot_ham.jpeg
 

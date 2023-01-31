@@ -15,29 +15,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final themeState = Provider.of<DarkThemeProvider>(context);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(),
         drawer: DrawerWidget(),
-        body: Center(
-            child: SwitchListTile(
-              title: Text(
-                'Theme'
-              ),
-              secondary: Icon(
-                themeState.getDarkTheme
-                    ? Icons.dark_mode_outlined
-                    : Icons.light_mode_outlined
-              ),
-              onChanged: (bool value){
-                setState(() {
-                  themeState.setDarkTheme = value ;
-                });
-              },
-                value: themeState.getDarkTheme,
-              )
-        ),
+        body:Container() ,
       ),
     );
   }
