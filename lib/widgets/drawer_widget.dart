@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:google_fonts/google_fonts.dart';
 //import 'package:marasi_news_app/widgets/vSpacing.da
 
 import 'package:marasi_news_app/widgets/vSpacing.dart';
@@ -20,30 +21,32 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   Widget build(BuildContext context) {
     final themeState = Provider.of<DarkThemeProvider>(context);
-
     return Drawer(
       child: Material(
         color: Theme.of(context).scaffoldBackgroundColor,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            UserAccountsDrawerHeader(
+            DrawerHeader(
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
               ),
-              accountName: Text('Muhammed Lagha'),
-              accountEmail: Text('Moh.Lagha@uot.edu.ly'),
-              currentAccountPicture: CircleAvatar(
-                child: Image.asset(
-                  'assets/images/newspaper.png',
-                  width: 90,
-                  height: 90,
-                  fit: BoxFit.cover,
+             child: Column(
+               mainAxisAlignment: MainAxisAlignment.center,
+               children: [
+                 CircleAvatar(
+                   radius: 50,
+                  child: Flexible(
+                    child: Image.asset(
+                      'assets/images/newspaper_icon.png',
                 ),
-              ),
-            ),
-            VerticalSpacing(10),
-            ListTile(
+                  ),),
+               const VerticalSpacing(10),
+                Flexible(child: Text('Marasi News-App',style:GoogleFonts.lobster(fontSize: 20,letterSpacing: 0.6),)),
+               ],
+             ),),
+            const VerticalSpacing(10),
+             ListTile(
               leading: Icon(IconlyBold.home,
                 //color: Theme.of(context).colorScheme.secondary,
               ),
@@ -56,7 +59,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               },
             ),
             //VerticalSpacing(20),
-            Divider(),
+            const Divider(),
             ListTile(
               leading: Icon(IconlyBold.bookmark,
                // color: Theme.of(context).colorScheme.secondary,
@@ -69,9 +72,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 Navigator.pop(context);
               },
             ),
-            Divider(),
+            const Divider(),
             SwitchListTile(
-              title: Text(
+              title: const Text(
                   'Theme',
                   style: TextStyle(fontSize: 20),
               ),

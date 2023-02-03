@@ -35,6 +35,7 @@ dependencies:
   shared_preferences: ^2.0.17
   provider: ^6.0.5
   iconly: ^1.0.1
+  google_fonts: ^4.0.1
 
 dev_dependencies:
   flutter_test:
