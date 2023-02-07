@@ -23,7 +23,8 @@ class TabsWidget extends StatelessWidget {
           child:  Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text( text,
-              style: TextStyle(fontSize: fontSize),),
+              style: TextStyle(fontSize: fontSize ,fontWeight: FontWeight.w600,),
+            ),
           )),
     );
   }
