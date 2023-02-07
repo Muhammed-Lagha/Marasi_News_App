@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_iconly/flutter_iconly.dart' show IconlyLight;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:marasi_news_app/consts/vars.dart';
@@ -59,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       });
                     },
                     fontSize: newsType == NewsType.allNews ? 16 : 14,),
-                SizedBox(width: 20,),
+                const SizedBox(width: 20,),
                 TabsWidget(
                   text: 'Top Trending',
                   color: newsType == NewsType.topTrending? Theme.of(context).cardColor
@@ -79,12 +80,34 @@ class _HomeScreenState extends State<HomeScreen> {
               const VerticalSpacing(10),
               newsType == NewsType.topTrending?Container()
               : SizedBox(
-                height: 20,
+                height: 45,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     paginationButton(function: (){},text: 'Prev'),
-                    paginationButton(function: (){},text: 'Next')
+                    Flexible(
+                      flex: 2,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Container(
+                              color: Theme.of(context).cardColor,
+                              child: const Center(
+                                  child: Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Text('1'),
+                                  )),
+                            ),
+                          ),
+                        );
+
+                      },),
+                    ),
+                    paginationButton(function: (){},text: 'Next'),
                   ],
                 ),
               ),
