@@ -8,6 +8,7 @@ import 'package:marasi_news_app/services/utils.dart';
 import 'package:marasi_news_app/widgets/drawer_widget.dart';
 import 'package:marasi_news_app/widgets/vSpacing.dart';
 
+import '../widgets/articles_widget.dart';
 import '../widgets/tabs.dart';
 //import 'package:provider/provider.dart';
 
@@ -145,7 +146,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     },),
                   ),
                 ),
-              )
+              ),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: 20,
+                        itemBuilder: (ctc,index){
+                      return ArticleWidget();
+                    }),
+                  ),
+
             ],),
         ) ,
       ),

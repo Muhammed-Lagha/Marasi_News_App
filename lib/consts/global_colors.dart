@@ -10,4 +10,4 @@ Color lightIconsColor = const Color(0xFF79A3B1);
 Color darkScaffoldColor = const Color(0xFF1A1A2E);
 Color darkCardColor = const Color(0xFF001429);
 Color darkBackgroundColor = const Color(0xFF0F3460);
-Color darkIconsColor = const Color(0xFFE94560);
+Color darkIconsColor = const Color(0xFF0F3460);

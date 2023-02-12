@@ -6,6 +6,7 @@ import 'package:marasi_news_app/provider/dark_theme_provider.dart';
   late BuildContext context ;
   Utils(this.context);
 
+  Size get getScreenSize => MediaQuery.of(context).size;
   bool get getTheme => Provider.of<DarkThemeProvider>(context).getDarkTheme;
   Color get getColor => getTheme ? Colors.white : Colors.black;
 
