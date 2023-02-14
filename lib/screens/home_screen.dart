@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_iconly/flutter_iconly.dart' show IconlyLight;
@@ -6,8 +8,9 @@ import 'package:marasi_news_app/consts/vars.dart';
 import 'package:marasi_news_app/services/utils.dart';
 //import 'package:marasi_news_app/provider/dark_theme_provider.dart';
 import 'package:marasi_news_app/widgets/drawer_widget.dart';
+import 'package:marasi_news_app/widgets/topTrending_widget.dart';
 import 'package:marasi_news_app/widgets/vSpacing.dart';
-
+import 'package:card_swiper/card_swiper.dart';
 import '../widgets/articles_widget.dart';
 import '../widgets/loading_widget.dart';
 import '../widgets/tabs.dart';
@@ -28,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   //get dropDownItems => null;
   @override
   Widget build(BuildContext context) {
+    Size size = Utils(context).getScreenSize;
     final Color color = Utils(context).getColor;
     return SafeArea(
       child: Scaffold(
@@ -148,8 +152,30 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-                  LoadingWidget(),
-
+                  //LoadingWidget(),
+              if(newsType == NewsType.allNews)
+                Expanded(child:
+                ListView.builder(
+                    itemCount: 20,
+                    itemBuilder: (cet,index){
+                      return const ArticleWidget();
+                    }),
+                ),
+              if(newsType == NewsType.topTrending)
+                SizedBox(
+                  height: size.height * 0.6,
+                  child: Swiper(
+                    autoplay: true,
+                    autoplayDelay: 8000,
+                    itemWidth: size.width * 0.9,
+                    layout: SwiperLayout.STACK,
+                    viewportFraction: 0.9,
+                    itemCount: 5,
+                    itemBuilder: (context, index){
+                      return const TopTrendingWidget();
+                    }
+                  ),
+                ),
             ],),
         ) ,
       ),
