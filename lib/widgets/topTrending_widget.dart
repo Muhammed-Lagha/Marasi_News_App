@@ -14,13 +14,11 @@ class TopTrendingWidget extends StatelessWidget {
     Size size = Utils(context).getScreenSize;
     return Padding(
       padding: const EdgeInsets.all(10.0),
-      child: InkWell(
-        onTap: () {},
-        child: Container(
-          decoration: BoxDecoration(
-            color: Theme.of(context).cardColor,
-            borderRadius: BorderRadius.circular(12),
-          ),
+        child: Material(
+          color: Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(12),
+          child: InkWell(
+            onTap: () {},
           child:Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
