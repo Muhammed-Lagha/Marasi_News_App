@@ -8,8 +8,8 @@ import 'package:shimmer/shimmer.dart';
 import '../consts/vars.dart';
 
 class LoadingWidget extends StatefulWidget {
-  const LoadingWidget({Key? key}) : super(key: key);
-
+  const LoadingWidget({Key? key, required this.newsType}) : super(key: key);
+  final NewsType newsType;
   @override
   State<LoadingWidget> createState() => _LoadingWidgetState();
 }
