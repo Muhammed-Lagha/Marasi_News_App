@@ -1,4 +1,4 @@
-import 'dart:html';
+//import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -11,8 +11,10 @@ import 'package:marasi_news_app/widgets/drawer_widget.dart';
 import 'package:marasi_news_app/widgets/topTrending_widget.dart';
 import 'package:marasi_news_app/widgets/vSpacing.dart';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:page_transition/page_transition.dart';
+import '../inner_screens/search_screen.dart';
 import '../widgets/articles_widget.dart';
-import '../widgets/loading_widget.dart';
+//import '../widgets/loading_widget.dart';
 import '../widgets/tabs.dart';
 //import 'package:provider/provider.dart';
 
@@ -47,8 +49,19 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           centerTitle: true,
           actions: [
-            IconButton(onPressed: () =>{} ,
-                icon: const Icon(IconlyLight.search),),
+            IconButton(onPressed: () =>{
+            Navigator.push(
+            context,
+            PageTransition(
+            type: PageTransitionType.rightToLeft,
+            child: const SearchScreen(),
+            inheritTheme: true,
+            ctx: context),
+            )
+            } ,
+                icon: const Icon(IconlyLight.search),
+
+            ),
 
           ],
         ),
