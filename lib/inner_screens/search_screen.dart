@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:marasi_news_app/services/utils.dart';
+import 'package:marasi_news_app/widgets/vSpacing.dart';
+
+import '../consts/vars.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -81,6 +85,35 @@ class _SearchScreenState extends State<SearchScreen> {
               ),),
             ],),
           ),
+        const VerticalSpacing(20),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: MasonryGridView.count(
+              itemCount: searchKeywords.length,
+              crossAxisCount: 4,
+              mainAxisSpacing: 4,
+              crossAxisSpacing: 4,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  child: Container(
+                    margin: const EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: color),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child:  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                        child: Text(searchKeywords[index],
+                        ),
+                      ),
+                    ),),
+                );
+              },
+            ),
+          ),
+        ),
         ],),
       ),
     )
