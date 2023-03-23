@@ -5,6 +5,7 @@ import 'package:marasi_news_app/services/utils.dart';
 import 'package:marasi_news_app/widgets/vSpacing.dart';
 
 import '../consts/vars.dart';
+import '../widgets/empty_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({Key? key}) : super(key: key);
@@ -114,6 +115,7 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
           ),
         ),
+          const EmptyNewsWidget(text: ('Ops! No Result Found'), imagePath: 'assets/images/search.png',)
         ],),
       ),
     )
