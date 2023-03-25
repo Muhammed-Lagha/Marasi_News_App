@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+//import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import 'package:marasi_news_app/widgets/vSpacing.da
-
+import 'package:marasi_news_app/inner_screens/bookmarks_screen.dart';
 import 'package:marasi_news_app/widgets/vSpacing.dart';
-
-
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';import '../provider/dark_theme_provider.dart';
 
 class DrawerWidget extends StatefulWidget {
@@ -47,10 +44,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
              ),),
             const VerticalSpacing(10),
              ListTile(
-              leading: Icon(IconlyBold.home,
+              leading: const Icon(IconlyBold.home,
                 //color: Theme.of(context).colorScheme.secondary,
               ),
-              title: Text(
+              title:const  Text(
                 'Home',
                 style: TextStyle(fontSize: 20),
               ),
@@ -61,16 +58,23 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             //VerticalSpacing(20),
             const Divider(),
             ListTile(
-              leading: Icon(IconlyBold.bookmark,
+              leading:const Icon(IconlyBold.bookmark,
                // color: Theme.of(context).colorScheme.secondary,
               ),
-              title: Text(
+              title:const Text(
                 'Bookmark',
                 style: TextStyle(fontSize: 20),
               ),
               onTap: () {
-                Navigator.pop(context);
-              },
+                  Navigator.push(
+                  context,
+                  PageTransition(
+                  type: PageTransitionType.rightToLeft,
+                  child: const BookmarkScreen(),
+                  inheritTheme: true,
+                  ctx: context),
+                  );
+                },
             ),
             const Divider(),
             SwitchListTile(
