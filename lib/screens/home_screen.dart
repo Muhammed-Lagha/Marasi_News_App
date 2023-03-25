@@ -210,7 +210,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   Widget paginationButton ({required Function function ,required String text}){
     return ElevatedButton(onPressed: () => {function},
-      child:  Text(text),
+      child: Text(text),
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue,
         padding: const EdgeInsets.all(6),
