@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
+import 'package:marasi_news_app/inner_screens/news_details.dart';
 import 'package:marasi_news_app/services/utils.dart';
 import 'package:marasi_news_app/widgets/vSpacing.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../consts/vars.dart';
 
@@ -48,7 +50,7 @@ class ArticleWidget extends StatelessWidget {
                         height: size.height * 0.12,
                         width: size.width * 0.12,
                         boxFit: BoxFit.fill,
-                          imageUrl: 'https://images.pexels.com/photos/12071970/pexels-photo-12071970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                          imageUrl: 'https://images.pexels.com/photos/2299499/pexels-photo-2299499.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
                       ),
                     ),
                     const SizedBox(width: 10,),
@@ -62,7 +64,15 @@ class ArticleWidget extends StatelessWidget {
                           Align(alignment: Alignment.topRight,
                               child: Text("Reading Time",style: smallTextStyle,)),
                           Row(
-                            children: [IconButton(onPressed: () {},
+                            children: [IconButton(onPressed: () {
+                              Navigator.push(
+                              context,
+                              PageTransition(
+                                  type: PageTransitionType.rightToLeft,
+                                  child: const NewsWebView(),
+                                  inheritTheme: true,
+                                  ctx: context),
+                            );},
                                 icon:const Icon(Icons.link_outlined),color: Colors.blue,),
                               Text('15-2-2023'*2,maxLines: 1, style: smallTextStyle,)
                             ],
